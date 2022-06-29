@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace HuYing\Qdgapisdk;
+namespace HuYingKeJi\Qdgapisdk;
 
 class ApiSdkClient {
     private string $appKey;
@@ -27,9 +27,9 @@ class ApiSdkClient {
     }
 
     /**
-     * @param \HuYing\Qdgapisdk\ApiReqInterface $apiReq
+     * @param \HuYingKeJi\Qdgapisdk\ApiReqInterface $apiReq
      * @return string
-     * @throws \HuYing\Qdgapisdk\Exceptions\ApiSdkHttpException
+     * @throws \HuYingKeJi\Qdgapisdk\Exceptions\ApiSdkHttpException
      */
     public function execute(ApiReqInterface $apiReq): string {
         $signStr = Signer::generateSign($apiReq->getApiParams(), $this->appSecret);

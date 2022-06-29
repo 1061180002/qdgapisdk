@@ -8,9 +8,9 @@
  */
 declare(strict_types=1);
 
-namespace HuYing\Qdgapisdk\Apis;
+namespace HuYingKeJi\Qdgapisdk\Apis;
 
-use HuYing\Qdgapisdk\ApiReqInterface;
+use HuYingKeJi\Qdgapisdk\ApiReqInterface;
 
 class UserRoleCommissionRequest implements ApiReqInterface {
     private string $openid;

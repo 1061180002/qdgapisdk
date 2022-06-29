@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace HuYing\Qdgapisdk\Exceptions;
+namespace HuYingKeJi\Qdgapisdk\Exceptions;
 
 class ApiSdkHttpException extends \Exception {
 

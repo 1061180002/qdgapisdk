@@ -3,7 +3,7 @@
 安装
 
 ```shell
-composer require huying/qdgapisdk
+composer require huyingkeji/qdgapisdk
 ```
 
 样例
@@ -11,8 +11,8 @@ composer require huying/qdgapisdk
 ```phpregexp
 required __DIR__."/../verdor/autoload.php";
 
-use HuYing\Qdgapisdk\Apis\UserRoleCommissionRequest;
-use HuYing\Qdgapisdk\ApiSdkClient;
+use HuYingKeJi\Qdgapisdk\Apis\UserRoleCommissionRequest;
+use HuYingKeJi\Qdgapisdk\ApiSdkClient;
 
 $client = new ApiSdkClient("<appKey>","<appSecret>");
 $req = new UserRoleCommissionRequest();

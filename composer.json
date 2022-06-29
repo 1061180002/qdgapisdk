@@ -1,5 +1,5 @@
 {
-    "name": "huying/qdgapisdk",
+    "name": "huyingkeji/qdgapisdk",
     "description": "渠道鸽应用apisdk",
     "versoion": "1.0.0",
     "keywords": [
@@ -11,7 +11,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "HuYing\\Qdgapisdk\\": "src/"
+            "HuYingKeJi\\Qdgapisdk\\": "src/"
         }
     },
     "authors": [

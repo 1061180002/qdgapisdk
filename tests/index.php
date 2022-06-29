@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__."/../vendor/autoload.php";
 
-use HuYing\Qdgapisdk\Apis\UserRoleCommissionRequest;
-use HuYing\Qdgapisdk\ApiSdkClient;
+use HuYingKeJi\Qdgapisdk\Apis\UserRoleCommissionRequest;
+use HuYingKeJi\Qdgapisdk\ApiSdkClient;
 
 $client = new ApiSdkClient("<appKey>","<appSecret>");
 $req = new UserRoleCommissionRequest();

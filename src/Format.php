@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace HuYing\Qdgapisdk;
+namespace HuYingKeJi\Qdgapisdk;
 
 class Format {
 

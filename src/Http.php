@@ -8,9 +8,9 @@
  */
 declare(strict_types=1);
 
-namespace HuYing\Qdgapisdk;
+namespace HuYingKeJi\Qdgapisdk;
 
-use HuYing\Qdgapisdk\Exceptions\ApiSdkHttpException;
+use HuYingKeJi\Qdgapisdk\Exceptions\ApiSdkHttpException;
 
 /**
  * NameSpace: HuYing\Qdgapisdk
@@ -23,7 +23,7 @@ class Http {
      * @param array $data
      * @param array $header
      * @return bool|string
-     * @throws \HuYing\Qdgapisdk\Exceptions\ApiSdkHttpException
+     * @throws \HuYingKeJi\Qdgapisdk\Exceptions\ApiSdkHttpException
      */
     public static function httpGet(string $url, array $data = [], array $header = []) {
         return self::httpRequest("get", $url, $data, $header);
@@ -34,7 +34,7 @@ class Http {
      * @param array $data
      * @param array $header
      * @return bool|string
-     * @throws \HuYing\Qdgapisdk\Exceptions\ApiSdkHttpException
+     * @throws \HuYingKeJi\Qdgapisdk\Exceptions\ApiSdkHttpException
      */
     public static function httpPost(string $url, array $data = [], array $header = []) {
         return self::httpRequest("post", $url, $data, $header);
@@ -46,7 +46,7 @@ class Http {
      * @param array $data
      * @param array $header
      * @return bool|string
-     * @throws \HuYing\Qdgapisdk\Exceptions\ApiSdkHttpException
+     * @throws \HuYingKeJi\Qdgapisdk\Exceptions\ApiSdkHttpException
      */
     private static function httpRequest(string $method, string $url, array $data, array $header = []) {
         $ch = curl_init();
