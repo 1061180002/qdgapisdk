@@ -1,0 +1,28 @@
+{
+    "name": "huying/qdgapisdk",
+    "description": "渠道鸽应用apisdk",
+    "versoion": "1.0.0",
+    "keywords": [
+        "applet",
+        "小程序",
+        "渠道鸽",
+        "sdk"
+    ],
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "HuYing\\Qdgapisdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "https://www.whuying.com/"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "license": "Apache-2.0"
+}
