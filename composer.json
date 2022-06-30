@@ -8,7 +8,6 @@
         "渠道鸽",
         "sdk"
     ],
-    "type": "library",
     "autoload": {
         "psr-4": {
             "HuYingKeJi\\Qdgapisdk\\": "src/"
