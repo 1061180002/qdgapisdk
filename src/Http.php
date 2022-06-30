@@ -55,7 +55,7 @@ class Http {
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         if ("post" === strtolower($method)) {
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data, 256));
             curl_setopt($ch, CURLOPT_URL, $url);
         } else {
             curl_setopt($ch, CURLOPT_URL, $url . "?" . http_build_query($data));
