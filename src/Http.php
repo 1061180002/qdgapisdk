@@ -49,20 +49,24 @@ class Http {
      * @throws \HuYingKeJi\Qdgapisdk\Exceptions\ApiSdkHttpException
      */
     private static function httpRequest(string $method, string $url, array $data, array $header = []) {
+        $newHeader = [];
+        foreach ($header as $k => $v) {
+            $newHeader[] = $k . ": " . $v;
+        }
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         if ("post" === strtolower($method)) {
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data, 256));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["content" => $data], 256));
             curl_setopt($ch, CURLOPT_URL, $url);
         } else {
             curl_setopt($ch, CURLOPT_URL, $url . "?" . http_build_query($data));
         }
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $newHeader);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = curl_exec($ch);
         $errmsg = curl_error($ch);
@@ -70,6 +74,13 @@ class Http {
         $curlInfo = curl_getinfo($ch);
         if ($curlInfo['http_code'] !== 200) {
             curl_close($ch);
+            foreach ($curlInfo as $k => $v) {
+                if (is_array($v)) {
+                    echo $k . "=======>" . json_encode($v) . "\n";
+                } else {
+                    echo $k . "=======>" . $v . "\n";
+                }
+            }
             throw new ApiSdkHttpException($errmsg ?: "响应出现错误!请检查参数设置");
         }
         if (curl_error($ch) || $output == false || $errcode != 0) {

@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace HuYingKeJi\Qdgapisdk;
 
+use HuYingKeJi\Qdgapisdk\Exceptions\ApiSdkHttpException;
+
 class ApiSdkClient {
     private string $appKey;
     private string $appSecret;
@@ -31,7 +33,7 @@ class ApiSdkClient {
      * @return string
      * @throws \HuYingKeJi\Qdgapisdk\Exceptions\ApiSdkHttpException
      */
-    public function execute(ApiReqInterface $apiReq): string {
+    public function execute(ApiReqInterface $apiReq): ?string {
         $signStr = Signer::generateSign($apiReq->getApiParams(), $this->appSecret);
         $header = [
             "Content-Type" => "application/json;charset=utf-8",
@@ -39,16 +41,15 @@ class ApiSdkClient {
             "Version"      => $this->version,
             "User-Agent"   => $this->userAgent,
             "Timestamp"    => $this->timestamp,
-            "Host"         => $this->host,
             "Appid"        => $this->appKey,
             "Sign"         => $signStr,
         ];
 
         if ("get" === strtolower($apiReq->getHttpMethod())) {
-            $resp = Http::httpGet($this->host . "/" . ltrim($apiReq->getUri(), "/"), $apiReq->getApiParams(), $header);
+            $resp = Http::httpGet($this->host . "/" . ltrim($apiReq->getUri(), "/"), array_merge($apiReq->getApiParams(), ["sign" => $signStr]), $header);
         } else {
-            $resp = Http::httpPost($this->host . "/" . ltrim($apiReq->getUri(), "/"), $apiReq->getApiParams(), $header);
+            $resp = Http::httpPost($this->host . "/" . ltrim($apiReq->getUri(), "/"), array_merge($apiReq->getApiParams(), ["sign" => $signStr]), $header);
         }
-        return $resp;
+        return  $resp;
     }
 }

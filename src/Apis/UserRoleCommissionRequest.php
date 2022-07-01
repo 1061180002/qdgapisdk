@@ -36,7 +36,7 @@ class UserRoleCommissionRequest implements ApiReqInterface {
     }
 
     public function getUri(): string {
-        return "/app/user_info";
+        return "/qdg/user_tree_path";
     }
 
     public function getHttpMethod(): string {
