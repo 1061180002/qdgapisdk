@@ -31,6 +31,10 @@ class UserRoleCommissionRequest implements ApiReqInterface {
         $this->apiParams["openid"] = $openid;
     }
 
+    /**
+     * 请求地址
+     * @return array
+     */
     public function getApiParams(): array {
         return $this->apiParams;
     }
