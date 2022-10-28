@@ -10,7 +10,11 @@ namespace HuYingKeJi\Qdgapisdk\Apis;
 
 use HuYingKeJi\Qdgapisdk\ApiReqInterface;
 
-class WeChatPayRequest implements ApiReqInterface {
+class WeChatPayAppLetRequest implements ApiReqInterface {
+	public function __construct() {
+		$this->apiParams["payType"] = "MP_APP";
+	}
+
 	/**
 	 * @var string 渠道鸽openid
 	 */
@@ -39,18 +43,6 @@ class WeChatPayRequest implements ApiReqInterface {
 	 * @var int 支付金额
 	 */
 	private int $total;
-	/**
-	 * @var string 支付类型 H5 MP_APP APP JSAPI
-	 */
-	private string $payType;
-
-	/**
-	 * @param string $payType
-	 */
-	public function setPayType(string $payType): void {
-		$this->payType = $payType;
-		$this->apiParams["payType"] = $payType;
-	}
 
 
 	/**
